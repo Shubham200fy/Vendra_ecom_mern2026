@@ -9,14 +9,16 @@ connectDB();
 const authRoutes = require('./routes/authRoutes')
 const productRoutes = require('./routes/productRoutes')
 const orderRoutes = require('./routes/orderRoutes')
+const paymentRoutes = require('./routes/paymentRoutes')
+const analyticsRoutes = require('./routes/analyticsRoutes')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 app.use(cors());
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
-// app.use('/api/payment', paymentRoutes);
-// app.use('/api/analytics', analyticsRoutes);
+app.use('/api/payment', paymentRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 
 app.get("/", (req, res) => {
